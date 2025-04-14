@@ -10,22 +10,83 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      overflow: hidden;
+      min-height: 100vh;
     }
 
+    /* Top Nav */
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .menu > .menu-item > button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .menu-item button:hover {
+      color: #00ffff;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 8px;
+      min-width: 160px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .dropdown a {
+      display: block;
+      color: #fff;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .dropdown a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-item:hover .dropdown {
+      display: block;
+    }
+
+    /* Main Header */
     h1 {
       font-size: 2.5rem;
       padding: 20px;
+      margin-top: 60px;
+      text-align: center;
       border-radius: 12px;
       background-color: rgba(255, 255, 255, 0.1);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(8px);
       animation: fadeInUp 1.2s ease-out;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @keyframes fadeInUp {
@@ -41,6 +102,36 @@
   </style>
 </head>
 <body>
-  <h1>Hello there! This is ch3ckm8's personal blog, currently under construction 🚧</h1>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <div class="menu">
+      <div class="menu-item">
+        <button>Home</button>
+        <div class="dropdown">
+          <a href="#">Welcome</a>
+          <a href="#">News</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <button>HackTheBox</button>
+        <div class="dropdown">
+          <a href="#">Writeups</a>
+          <a href="#">Tips</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <button>Projects</button>
+        <div class="dropdown">
+          <a href="#">CyberSec Tools</a>
+          <a href="#">Web Dev</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Content -->
+  <h1>Hello there! This is checkm8's personal blog, currently under construction 🚧</h1>
+
 </body>
 </html>
