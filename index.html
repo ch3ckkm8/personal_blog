@@ -99,6 +99,54 @@
         opacity: 1;
       }
     }
+
+    /* HackTheBox Writeups Section */
+    .writeups-section {
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .writeups-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    table, th, td {
+      border: 1px solid #444;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    td {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -114,14 +162,13 @@
         </div>
       </div>
       
-    <div class="menu-item">
-      <button>HackTheBox</button>
-      <div class="dropdown">
-        <!-- <a href="writeups/HTB_administrator_v2.pdf" target="_blank">Administrator</a> -->
-        <a href="administrator.html">Administrator</a>
-
+      <div class="menu-item">
+        <button>HackTheBox</button>
+        <div class="dropdown">
+          <a href="administrator.html">Administrator</a>
+        </div>
       </div>
-    </div>
+
       <div class="menu-item">
         <button>Projects</button>
         <div class="dropdown">
@@ -134,6 +181,27 @@
 
   <!-- Header Content -->
   <h1>Hello there! This is checkm8's personal blog, currently under construction 🚧</h1>
+
+  <!-- HackTheBox Writeups Section -->
+  <div class="writeups-section">
+    <h2>HackTheBox Writeups</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Machine</th>
+          <th>Difficulty</th>
+          <th>Progress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="administrator.html">Administrator</a></td>
+          <td>Easy</td>
+          <td>✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </body>
 </html>
