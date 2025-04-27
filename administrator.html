@@ -41,6 +41,12 @@
     ul, ol {
       padding-left: 20px;
     }
+    /* Custom style for highlight */
+    .highlight {
+      background-color: yellow;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -52,11 +58,21 @@
 <!-- Load marked.js to parse Markdown -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
+  // Custom renderer to handle ==text== for highlighting
+  const renderer = new marked.Renderer();
+
+  // Override the default inline code renderer to support `==highlight==`
+  renderer.text = function (text) {
+    // Replace ==text== with <span class="highlight">text</span>
+    return text.replace(/==(.+?)==/g, '<span class="highlight">$1</span>');
+  };
+
+  // Fetch the markdown file and parse it
   fetch('writeups/HTB_administrator_v2.md')
     .then(response => response.text())
     .then(text => {
-      // Parse markdown into HTML
-      const htmlContent = marked.parse(text);
+      // Parse markdown with our custom renderer
+      const htmlContent = marked.parse(text, { renderer: renderer });
       document.getElementById('content').innerHTML = htmlContent;
     })
     .catch(error => {
