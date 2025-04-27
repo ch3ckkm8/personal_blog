@@ -15,9 +15,31 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
     }
     a {
       color: #00ffff;
+    }
+    h1, h2, h3, h4 {
+      color: #00ffff;
+    }
+    pre {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: 'Courier New', Courier, monospace;
+    }
+    blockquote {
+      border-left: 4px solid #00ffff;
+      padding-left: 10px;
+      color: #ccc;
+      margin-left: 0;
+    }
+    ul, ol {
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -27,12 +49,15 @@
 
 <div id="content">Loading writeup...</div>
 
+<!-- Load marked.js to parse Markdown -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   fetch('writeups/HTB_administrator_v2.md')
     .then(response => response.text())
     .then(text => {
-      document.getElementById('content').innerHTML = marked.parse(text);
+      // Parse markdown into HTML
+      const htmlContent = marked.parse(text);
+      document.getElementById('content').innerHTML = htmlContent;
     })
     .catch(error => {
       document.getElementById('content').innerText = "Failed to load writeup.";
