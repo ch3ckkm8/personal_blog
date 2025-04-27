@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrator Writeup</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 20px;
+    }
+    #content {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    a {
+      color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Administrator Writeup</h1>
+
+<div id="content">Loading writeup...</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  fetch('writeups/HTB_administrator_v2.md')
+    .then(response => response.text())
+    .then(text => {
+      document.getElementById('content').innerHTML = marked.parse(text);
+    })
+    .catch(error => {
+      document.getElementById('content').innerText = "Failed to load writeup.";
+      console.error(error);
+    });
+</script>
+
+</body>
+</html>
