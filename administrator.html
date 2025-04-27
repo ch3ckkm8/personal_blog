@@ -61,7 +61,7 @@
   // Custom renderer to handle ==text== for highlighting
   const renderer = new marked.Renderer();
 
-  // Override the default inline code renderer to support `==highlight==`
+  // Override the default inline code renderer to support ==highlight==
   renderer.text = function (text) {
     // Replace ==text== with <span class="highlight">text</span>
     return text.replace(/==(.+?)==/g, '<span class="highlight">$1</span>');
@@ -72,7 +72,7 @@
     .then(response => response.text())
     .then(text => {
       // Parse markdown with our custom renderer
-      const htmlContent = marked.parse(text, { renderer: renderer });
+      const htmlContent = marked(text, { renderer: renderer });
       document.getElementById('content').innerHTML = htmlContent;
     })
     .catch(error => {
